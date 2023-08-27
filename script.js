@@ -1,41 +1,42 @@
-function calcularValorCuota(montoTotal, cantidadCuotas) {
-  if (isNaN(montoTotal) || isNaN(cantidadCuotas) || montoTotal <= 0 || cantidadCuotas <= 0) {
-    return 'Por favor, ingrese valores válidos para el monto total y la cantidad de cuotas.';
+
+document.addEventListener('DOMContentLoaded', () => {
+  const montoInput = document.getElementById('monto');
+  const cuotasInput = document.getElementById('cuotas');
+  const calcularButton = document.getElementById('calcular');
+  const resultadosDiv = document.getElementById('resultados');
+  
+  calcularButton.addEventListener('click', calcularCuotas);
+  
+  function calcularValorCuota(montoTotal, cantidadCuotas) {
+    if (isNaN(montoTotal) || isNaN(cantidadCuotas) || montoTotal <= 0 || cantidadCuotas <= 0) {
+      return 'Por favor, ingrese valores válidos para el monto total y la cantidad de cuotas.';
+    }
+  
+    return montoTotal / cantidadCuotas;
   }
-
-  return montoTotal / cantidadCuotas;
-}
-
-function mostrarResultados(cuotas) {
-  let resultados = '';
-  for (let i = 0; i < cuotas.length; i++) {
-    resultados += `Mes ${i + 1}: Valor de cuota: $${cuotas[i].toFixed(2)}\n`;
+  
+  function mostrarResultados(resultado) {
+    resultadosDiv.textContent = resultado;
   }
-  alert(resultados);
-}
-
-function calcularCuotas() {
-  const montoTotalInput = prompt('Ingrese el monto total:');
-  const cantidadCuotasInput = prompt('Ingrese la cantidad de cuotas:');
-
-  const montoTotal = parseFloat(montoTotalInput);
-  const cantidadCuotas = parseInt(cantidadCuotasInput);
-
-  if (isNaN(montoTotal) || isNaN(cantidadCuotas) || montoTotal <= 0 || cantidadCuotas <= 0) {
-    alert('Por favor, ingrese valores válidos para el monto total y la cantidad de cuotas.');
-    return;
+  
+  function calcularCuotas() {
+    const montoTotal = parseFloat(montoInput.value);
+    const cantidadCuotas = parseInt(cuotasInput.value);
+  
+    const valorCuota = calcularValorCuota(montoTotal, cantidadCuotas);
+    mostrarResultados(`Valor de cada cuota: $${valorCuota.toFixed(2)}`);
+    
+    // Almacenar datos en el Storage (Local Storage)
+    localStorage.setItem('monto', montoTotal);
+    localStorage.setItem('cuotas', cantidadCuotas);
   }
-
-  const valorCuota = calcularValorCuota(montoTotal, cantidadCuotas);
-  const cuotas = new Array(cantidadCuotas).fill(valorCuota);
-
-  mostrarResultados(cuotas);
-
-  const confirmacion = confirm('¿Desea calcular cuántos meses faltan para terminar?');
-  if (confirmacion) {
-    const mesesFaltantes = cantidadCuotas;
-    alert(`Meses faltantes para terminar: ${mesesFaltantes}`);
+  
+  // Recuperar datos del Storage al cargar la página
+  const storedMonto = localStorage.getItem('monto');
+  const storedCuotas = localStorage.getItem('cuotas');
+  
+  if (storedMonto && storedCuotas) {
+    montoInput.value = storedMonto;
+    cuotasInput.value = storedCuotas;
   }
-}
-
-calcularCuotas();
+});
