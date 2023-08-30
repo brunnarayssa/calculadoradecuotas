@@ -1,27 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simulador de Cuotas</title>
-  <link rel="stylesheet" href="style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Cuotas</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Simulador de Cuotas</h1>
-  
-  <label for="monto">Monto Total:</label>
-  <input type="number" id="monto" min="1">
-  
-  <label for="cuotas">Cantidad de Cuotas:</label>
-  <input type="number" id="cuotas" min="1">
-  
-  <button id="calcular">Calcular</button>
-  
-  <div id="resultados"></div>
-  <footer>
-    <p>&copy; 2023 Simulador de Cuotas. Todos los derechos reservados.</p>
-  </footer>
-  <script src="script.js"></script>
+    <h1>Calculadora de Cuotas</h1>
+    <form id="clienteForm">
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" required>
+        </div>
+        <div>
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" required>
+        </div>
+        <div>
+            <label for="loanAmount">Monto del Préstamo:</label>
+            <input type="number" id="loanAmount">
+        </div>
+        <div>
+            <label for="numPayments">Número de Cuotas:</label>
+            <input type="number" id="numPayments">
+        </div>
+        <button id="calculateBtn">Calcular Cuotas</button>
+        <!-- deletar clientes -->
+
+
+    </form>
+    <div id="result"></div>
+    <div id="clientesContainer"></div>
+    <footer>
+        <p>&copy; 2023 Calculadora de Cuotas. Todos los derechos reservados.</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
+
