@@ -8,7 +8,6 @@
         max-width: none;
     }
 }
-
 body {
     background-color: #F0F8FF;
     font-family: Arial, sans-serif;
@@ -58,6 +57,7 @@ button:hover {
 }
 
 #clientesContainer {
+    
     padding: 20px;
 }
 
