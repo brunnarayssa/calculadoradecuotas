@@ -1,10 +1,10 @@
 class Cliente {
   constructor(nombre, apellido, montoPrestamo, numCuotas) {
-      // Constructor de la clase Cliente que inicializa las propiedades del cliente
-      this.nombre = nombre;
-      this.apellido = apellido;
-      this.montoPrestamo = montoPrestamo;
-      this.numCuotas = numCuotas;
+    // Constructor de la clase Cliente que inicializa las propiedades del cliente
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.montoPrestamo = montoPrestamo;
+    this.numCuotas = numCuotas;
   }
 }  //testando esse parte de cima do codigo.
 
@@ -18,8 +18,8 @@ window.addEventListener('DOMContentLoaded', () => {
 function cargarClientes() {
   const storedClientes = localStorage.getItem('clientes');
   if (storedClientes) {
-      const clientes = JSON.parse(storedClientes);
-      mostrarClientesEnDOM(clientes);
+    const clientes = JSON.parse(storedClientes);
+    mostrarClientesEnDOM(clientes);
   }
 }
 

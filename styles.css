@@ -1,7 +1,16 @@
-/*  */
+/*diseño responsive */
+@media (max-width: 768px) {
+
+    label,
+    input,
+    button {
+        width: 100%;
+        max-width: none;
+    }
+}
 
 body {
-    background-color: beige;
+    background-color: #F0F8FF;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -10,6 +19,7 @@ body {
 h1 {
     text-align: center;
     padding: 20px;
+    color: #1E90FF;
 }
 
 div {
@@ -23,13 +33,13 @@ label {
 
 input {
     padding: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #87CEEB;
     border-radius: 4px;
 }
 
 button {
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #4169E1;
     color: white;
     border: none;
     border-radius: 4px;
@@ -37,34 +47,32 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #1E90FF;
 }
 
 #result {
     padding: 20px;
     text-align: center;
     font-weight: bold;
+    color: #4682B4;
 }
 
 #clientesContainer {
-   
     padding: 20px;
 }
 
 .cliente {
-    border: 1px solid #ddd;
+    border: 1px solid #B0C4DE;
     padding: 10px;
     margin: 10px 0;
     border-radius: 4px;
-    background-color: #f9f9f9;
+    background-color: #F0F8FF;
 }
+
 footer {
     text-align: center;
     padding: 10px;
-    background-color: #f1f1f1;
+    background-color: #87CEEB;
     bottom: 0;
     width: 100%;
 }
-
-
-  
