@@ -1,26 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html> 
+<html lang="en"> 
 
-<head>
-  <meta charset="UTF-8">
+<head> 
+  <meta charset="UTF-8"> 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora de Cuotas - Coder.</title>
-  <link rel="stylesheet" href="styles.css">
-  <!--libreria sweetalet-->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <title>Calculadora de Cuotas - Coder.</title> 
+  <link rel="stylesheet" href="styles.css"> <!-- hoja de estilos CSS para estilizar el documento -->
+  <!-- Librería SweetAlert2  -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
 
 </head>
 
-<body>
-  <header>
-    <h1>Calculadora de Cuotas</h1>
+<body> 
+  <header> 
+    <h1>Calculadora de Cuotas</h1> 
   </header>
-  <main>
-    <section>
-      <!--Formulario-->
-      <form id="clienteForm">
-        <fieldset>
-          <legend>Información del Cliente</legend>
+  <main> 
+    <section> 
+      <form id="clienteForm"> 
+        <fieldset> <!-- Agrupa y encuadra los elementos del formulario -->
+          <legend>Información del Cliente</legend> 
+         
           <div>
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" placeholder="Ej. Juan" required>
@@ -39,32 +39,31 @@
           </div>
           <div>
             <label for="currency">Moneda:</label>
+            <!-- selección para elegir la moneda en la que se hará el préstamo -->
             <select id="currency">
               <option value="USD">$ (Dólar)</option>
               <option value="EUR">€ (Euro)</option>
               <option value="MXN">$ (Peso Mexicano)</option>
-
             </select>
           </div>
 
+          
           <button type="button" id="calculateBtn">Calcular Cuotas</button>
         </fieldset>
       </form>
+      <!-- resultados  -->
       <div id="result"></div>
     </section>
+    <!-- Sección donde se mostrará la lista de clientes -->
     <section id="clientesContainer"></section>
   </main>
   
 
-  <footer>
+  <footer> <!-- Define el pie de página de la página web -->
     <p>&copy; 2023 Calculadora de Cuotas - Coder. Todos los derechos reservados.</p>
   </footer>
+  <!-- Enlaza el archivo de script JavaScript  -->
   <script src="script.js"></script>
-  
+</body> 
 
-
-
-</body>
-
-
-</html>
+</html> 
