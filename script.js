@@ -3,6 +3,7 @@
 window.addEventListener('DOMContentLoaded', () => {
   document.getElementById('calculateBtn').addEventListener('click', calcularCuotas);
   cargarClientes();
+  cargarDatosLocales(); // Llamada a la nueva función para cargar datos locales.
 });
 
 // Definición de la clase Cliente al inicio porque es necesaria para definir la estructura de un Cliente en varias funciones
@@ -16,12 +17,24 @@ class Cliente {
     this.moneda = moneda;
   }
 }
+async function cargarDatosLocales() {
+  try {
+    const response = await fetch('package-lock.json');
+    if (!response.ok) {
+      throw new Error('Network response was not ok ' + response.statusText);
+    }
+    const data = await response.json();
+    console.log(data); // Por ahora, simplemente imprimimos los datos en la consola.
+  } catch (error) {
+    console.error('There has been a problem with your fetch operation:', error);
+  }
+}
 
 // Ahora, todas las funciones estarán declaradas aquí, después de la definición de la clase y del bloque DOMContentLoaded
 
 function validarDatos(nombre, apellido, loanAmount, numPayments) {
   const MIN_PRESTAMO = 500;
-  
+
   if (!nombre || !apellido || isNaN(loanAmount) || loanAmount <= 0 || isNaN(numPayments) || numPayments <= 0) {
     Swal.fire({
       icon: 'error',
@@ -39,7 +52,7 @@ function validarDatos(nombre, apellido, loanAmount, numPayments) {
     });
     return false;
   }
-  
+
   return true;
 }
 
@@ -77,7 +90,7 @@ function guardarClientes(clientes) {
 function crearElementoCliente(cliente) {
   const clienteDiv = document.createElement('div');
   clienteDiv.className = 'cliente';
-  
+
   const elementosCliente = [
     { etiqueta: 'p', contenido: `Nombre: ${cliente.nombre} ${cliente.apellido}` },
     { etiqueta: 'p', contenido: `Monto del Préstamo: ${formatoMoneda(cliente.montoPrestamo, cliente.moneda)}` },
@@ -85,27 +98,27 @@ function crearElementoCliente(cliente) {
     { etiqueta: 'p', contenido: `Tasa de Interés: ${(cliente.tasaInteres * 100).toFixed(2)}%` },
     { etiqueta: 'p', contenido: `Valor de cada cuota: ${formatoMoneda(calcularValorCuota(cliente), cliente.moneda)}` }
   ];
-  
+
   elementosCliente.forEach(elemento => {
     const pElement = document.createElement(elemento.etiqueta);
     pElement.textContent = elemento.contenido;
     clienteDiv.appendChild(pElement);
   });
-  
+
   return clienteDiv;
 }
 
 function mostrarClientesEnDOM(clientes) {
   const clientesContainer = document.getElementById('clientesContainer');
   clientesContainer.innerHTML = '';
-  
+
   clientes.forEach(cliente => {
     const clienteDiv = crearElementoCliente(cliente);
 
     const btnBorrar = document.createElement('button');
     btnBorrar.textContent = 'Borrar';
     btnBorrar.addEventListener('click', () => borrarCliente(cliente));
-    
+
     clienteDiv.appendChild(btnBorrar);
     clientesContainer.appendChild(clienteDiv);
   });
@@ -114,7 +127,7 @@ function mostrarClientesEnDOM(clientes) {
 function borrarCliente(cliente) {
   const clientes = obtenerClientesDeStorage();
   const indice = clientes.findIndex(c => c.nombre === cliente.nombre && c.apellido === cliente.apellido);
-  
+
   if (indice !== -1) {
     clientes.splice(indice, 1);
     guardarClientes(clientes);
@@ -125,6 +138,7 @@ function borrarCliente(cliente) {
 function cargarClientes() {
   const clientes = obtenerClientesDeStorage();
   mostrarClientesEnDOM(clientes);
+ 
 }
 
 function calcularCuotas(event) {
@@ -159,3 +173,4 @@ function limpiarFormulario() {
   document.getElementById('numPayments').value = '';
   document.getElementById('currency').value = 'USD';
 }
+

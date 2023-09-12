@@ -1,5 +1,6 @@
 /* Estilos generales */
 
+/* Establece el color de fondo y la fuente para todo el cuerpo del documento */
 body {
     background-color: #F0F8FF;
     font-family: Arial, sans-serif;
@@ -7,27 +8,32 @@ body {
     padding: 0;
 }
 
+/* Estilizacino del elemento h1 con un alineado central, padding y color específico */
 h1 {
     text-align: center;
     padding: 20px;
     color: #1E90FF;
 }
 
+/* margen */
 .input-group {
     margin: 10px;
 }
 
+/* Estilizacion de las etiquetas de los inputs */
 .input-label {
     display: inline-block;
     width: 200px;
 }
 
+/* padding, bordes redondeados y color de borde específico */
 input {
     padding: 5px;
     border: 1px solid #87CEEB;
     border-radius: 4px;
 }
 
+/* estilos para los botones */
 button {
     padding: 10px 20px;
     background-color: #4169E1;
@@ -37,10 +43,12 @@ button {
     cursor: pointer;
 }
 
+/* Define un efecto hover para los botones, cambiando su color de fondo cuando se pasa el ratón sobre ellos */
 button:hover {
     background-color: #1E90FF;
 }
 
+/* Estiliza la sección de resultados */
 #result {
     padding: 20px;
     text-align: center;
@@ -48,10 +56,13 @@ button:hover {
     color: #4682B4;
 }
 
+  
+/* Define el padding para el contenedor de clientes */
 #clientesContainer {
     padding: 20px;
 }
 
+/* Define los estilos para cada div que representa a un cliente, incluyendo bordes, padding, margen y color de fondo */
 .cliente {
     border: 1px solid #B0C4DE;
     padding: 10px;
@@ -60,6 +71,8 @@ button:hover {
     background-color: #F0F8FF;
 }
 
+
+/* Estiliza el pie de página con un alineado de texto central, padding y color de fondo. También se asegura de que tenga el ancho completo de la vista */
 footer {
     text-align: center;
     padding: 10px;
@@ -68,8 +81,9 @@ footer {
     width: 100%;
 }
 
-/* Estilos para dispositivos móviles */
+/* Estilos específicos para dispositivos móviles con un ancho de pantalla de hasta 768px. Ajusta el ancho de varios elementos para que ocupen todo el ancho disponible */
 @media (max-width: 768px) {
+
     .input-label,
     input,
     button {

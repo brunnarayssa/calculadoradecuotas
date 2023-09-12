@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora de Cuotas</title>
+  <title>Calculadora de Cuotas - Coder.</title>
   <link rel="stylesheet" href="styles.css">
+  <!--libreria sweetalet-->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
@@ -16,6 +17,7 @@
   </header>
   <main>
     <section>
+      <!--Formulario-->
       <form id="clienteForm">
         <fieldset>
           <legend>Información del Cliente</legend>
@@ -41,10 +43,10 @@
               <option value="USD">$ (Dólar)</option>
               <option value="EUR">€ (Euro)</option>
               <option value="MXN">$ (Peso Mexicano)</option>
-              <!--  añadir más monedas según lo necesites -->
+
             </select>
           </div>
-          
+
           <button type="button" id="calculateBtn">Calcular Cuotas</button>
         </fieldset>
       </form>
@@ -52,10 +54,17 @@
     </section>
     <section id="clientesContainer"></section>
   </main>
+  
+
   <footer>
-    <p>&copy; 2023 Calculadora de Cuotas. Todos los derechos reservados.</p>
+    <p>&copy; 2023 Calculadora de Cuotas - Coder. Todos los derechos reservados.</p>
   </footer>
   <script src="script.js"></script>
+  
+
+
+
 </body>
+
 
 </html>
