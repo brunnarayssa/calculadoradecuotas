@@ -1,0 +1,21 @@
+{
+    "clientes": [
+      {
+        "nombre": "Juan",
+        "apellido": "Pérez",
+        "montoPrestamo": 5000,
+        "numCuotas": 12,
+        "tasaInteres": 0.05,
+        "moneda": "USD"
+      },
+      {
+        "nombre": "María",
+        "apellido": "Rodríguez",
+        "montoPrestamo": 3000,
+        "numCuotas": 24,
+        "tasaInteres": 0.10,
+        "moneda": "USD"
+      }
+    ]
+  }
+  

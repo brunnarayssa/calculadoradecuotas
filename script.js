@@ -19,16 +19,18 @@ class Cliente {
 }
 async function cargarDatosLocales() {
   try {
-    const response = await fetch('package-lock.json');
+    const response = await fetch('data.json');
     if (!response.ok) {
       throw new Error('Network response was not ok ' + response.statusText);
     }
     const data = await response.json();
-    console.log(data); // Por ahora, simplemente imprimimos los datos en la consola.
+    guardarClientes(data.clientes);  // Guardamos los datos cargados en el localStorage
+    cargarClientes();  // Actualizamos la vista para mostrar los datos cargados
   } catch (error) {
     console.error('There has been a problem with your fetch operation:', error);
   }
 }
+
 
 // Ahora, todas las funciones estarán declaradas aquí, después de la definición de la clase y del bloque DOMContentLoaded
 
